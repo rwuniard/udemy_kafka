@@ -19,8 +19,10 @@ kafka-console-producer.sh --bootstrap-server localhost:9092 --topic first_topic 
 
 
 # producing to a non existing topic
+# you will get a warning message first indicating LEADER_NOT_AVAILABLE, but then Kafka will create the topic for you.
 kafka-console-producer.sh --bootstrap-server localhost:9092 --topic new_topic
 > hello world!
+
 
 # our new topic only has 1 partition
 kafka-topics.sh --bootstrap-server localhost:9092 --list
@@ -45,3 +47,5 @@ kafka-topics.sh --bootstrap-server localhost:9092 --topic new_topic_2 --describe
 kafka-console-producer --bootstrap-server localhost:9092 --topic first_topic --property parse.key=true --property key.separator=:
 >example key:example value
 >name:Stephane
+>userid_123:Conduktor
+# if you don't send a key, you will key an error "No key found on line xxx"
