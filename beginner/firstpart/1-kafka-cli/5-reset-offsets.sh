@@ -23,6 +23,7 @@ kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group my
 kafka-consumer-groups.sh
 
 # shift offsets by 2 (forward) as another strategy
+# When you shift the offsets, it will shift against all the partitions of the topic.
 kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group my-first-application --reset-offsets --shift-by 2 --execute --topic first_topic
 
 # shift offsets by 2 (backward) as another strategy
